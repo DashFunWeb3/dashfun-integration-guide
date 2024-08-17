@@ -21,7 +21,7 @@ DashFun的运行方式是在自身的app内包含一个iFrame，嵌入游戏，�
 - 首先需要创建telegram的测试账号，[测试账号创建方法](https://docs.telegram-mini-apps.com/platform/test-environment)
 - 登陆测试账号后，搜索 DashFunTest [https://t.me/DashFunTestBot](https://t.me/DashFunTestBot)
 - 向DashFunTestBot发送消息 /test 测试游戏的链接，bot会回复一条消息，点击即可开启测试游戏
--  <font color="#ff9900">注: 测试游戏的连接必须是https协议地址</font> 
+- **注: 测试游戏的连接必须是https协议地址**
 
 ---
 # API说明
