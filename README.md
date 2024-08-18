@@ -131,9 +131,9 @@ const msg = {
 		method: "requestPayment",
 		payload:{ //PaymentRequest
 			title:"200钻石",
-			desc: "购买200钻石"
+			desc: "购买200钻石",
 			info: "200钻石",
-			price: 2
+			price: 2,
 		}
 	}
 }
@@ -203,7 +203,7 @@ window.addEventListener("message", ({data})=>{
 [GET] http://dashfun-server-test.nexgami.com/api/v1/payment/get
 
 query:
-game_id: 游戏id，向dashfun平台获取
+game_id: 游戏id，向dashfun平台获取，测试模式下固定为 ForTest
 payment_id: 要查询的payment_id
 user_id: 要查询支付用户的id
 ```
