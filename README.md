@@ -2,6 +2,7 @@
 * [简介](#简介)
 * [接入文档](#接入文档)
 * [测试方式](#测试方式)
+* [服务器端API](#服务器端API)
 
 # 简介
 DashFun是一个h5游戏整合平台，运行在telegram的mini app中
@@ -197,22 +198,31 @@ window.addEventListener("message", ({data})=>{
 
 ```
 
-为了防止冒充，游戏方服务器可以通过以下api对支付结果进行验证
+为了防止冒充，游戏方服务器可以通过[**验证支付结果API**](#验证支付结果api)对支付结果进行验证
 
-测试服务器：
+
+---
+
+# 服务器端API
+
+服务器地址:
+- 测试环境
+  https://dashfun-server-test.nexgami.com
+- 生产环境
+  https://tma-server.dashfun.games
+   
+ 
+# 验证支付结果API
+
 ```http
-[GET] http://dashfun-server-test.nexgami.com/api/v1/payment/get
-
+[GET] /api/v1/payment/get
+ 
 query:
 game_id: 游戏id，向dashfun平台获取，测试模式下固定为 ForTest
 payment_id: 要查询的payment_id
 user_id: 要查询支付用户的id
 ```
 
-**注：正式服务器需要使用**
-```http
-[GET] https://tma-server.dashfun.games/api/v1/payment/get
-```
 
 返回的结果
 ```json
