@@ -199,6 +199,7 @@ window.addEventListener("message", ({data})=>{
 
 为了防止冒充，游戏方服务器可以通过以下api对支付结果进行验证
 
+测试服务器：
 ```http
 [GET] http://dashfun-server-test.nexgami.com/api/v1/payment/get
 
@@ -206,6 +207,11 @@ query:
 game_id: 游戏id，向dashfun平台获取，测试模式下固定为 ForTest
 payment_id: 要查询的payment_id
 user_id: 要查询支付用户的id
+```
+
+**注：正式服务器需要使用**
+```http
+[GET] https://tma-server.dashfun.games/api/v1/payment/get
 ```
 
 返回的结果
