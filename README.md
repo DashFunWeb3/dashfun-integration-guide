@@ -267,9 +267,10 @@ level:	 上报用户等级
 返回的结果
 ```json
 {
-	"code": 0 | -1,   //0=success, -1=error
-	"msg": "success" | "error msg"
+	"code": 0, //0 | -1,   /0=success, -1=error
+	"msg": "success" , //"success" or error message
 }
+
 ```
 
 
@@ -290,11 +291,11 @@ level:	 上报用户等级
 增加timestam和secret，并排序
 ```json
 {
-	game_id:"a1b2c3d4",
-	level:10,
-	secret:"ZGFzaGZ1xxxxxxx4ZWU5MjgxOTAwMA==",
-	timestamp:1728787740503,
-	user_id:"123456",
+	"game_id":"a1b2c3d4",
+	"level":10,
+	"secret":"ZGFzaGZ1xxxxxxx4ZWU5MjgxOTAwMA==",
+	"timestamp":1728787740503,
+	"user_id":"123456",
 }
 ```
 
@@ -304,8 +305,7 @@ level:	 上报用户等级
 game_id=9c4r4sdzb40&level=4&secret=ZGFzaGZ1xxxxxxx4ZWU5MjgxOTAwMA%3D%3D&timestamp=1728787740503&user_id=123456
 ```
 
-对query string计算md5
-md5=8c6dda5a5d7d75e10a00748207f1520d
+对query string计算md5: 8c6dda5a5d7d75e10a00748207f1520d
 
 最终请求为：
 ```http
