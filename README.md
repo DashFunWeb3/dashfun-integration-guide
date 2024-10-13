@@ -257,7 +257,7 @@ user_id: 要查询支付用户的id
  
 query:
 game_id: 游戏id，向dashfun平台获取，测试模式下固定为 ForTest
-user_id: 要查询支付用户的id
+user_id: 用户的dashfun id
 level:	 上报用户等级
 ```
 
