@@ -248,3 +248,66 @@ user_id: 要查询支付用户的id
     }
 }
 ```
+
+# 上报用户等级API
+游戏方的服务器端需要在用户 **登录时** 和 **升级后** 上报用户的等级
+
+```http
+[GET] /api/v1/game_report/player_level
+ 
+query:
+game_id: 游戏id，向dashfun平台获取，测试模式下固定为 ForTest
+user_id: 要查询支付用户的id
+level:	 上报用户等级
+```
+
+此函数需要签名，详见[**签名算法**](#签名算法)
+
+
+返回的结果
+```json
+{
+	"code": 0 | -1,   //0=success, -1=error
+	"msg": "success" | "error msg"
+}
+```
+
+
+# 签名算法
+- 上报服务器的api调用均需要签名
+
+### 签名方法
+1. 为请求增加timestamp参数，值为unix timestamp，这个需要带到最终的url请求中
+2. 增加secret参数，值向dashfun获取，**这个不要带到最终的url请求中**
+3. 对所有参数，按照key的字母排序，从小到大
+4. 将排序后的参数重新拼接成query string，注意拼接时对值进行urlencode
+5. 计算成的query string的md5值
+6. 将结算的结果加到最终的url请求中，参数名为sign
+
+### 以上报用户等级api为例
+原始请求为: /api/v1/game_report/player_level?game_id=a1b2c3d4&user_id=123456&level=10
+
+增加timestam和secret，并排序
+```json
+{
+	game_id:"a1b2c3d4",
+	level:10,
+	secret:"ZGFzaGZ1xxxxxxx4ZWU5MjgxOTAwMA==",
+	timestamp:1728787740503,
+	user_id:"123456",
+}
+```
+
+生成query string:
+
+```http
+game_id=9c4r4sdzb40&level=4&secret=ZGFzaGZ1xxxxxxx4ZWU5MjgxOTAwMA%3D%3D&timestamp=1728787740503&user_id=123456
+```
+
+对query string计算md5
+md5=8c6dda5a5d7d75e10a00748207f1520d
+
+最终请求为：
+```http
+/api/v1/game_report/player_level?game_id=a1b2c3d4&user_id=123456&level=10&timestamp=1728787740503&sign=8c6dda5a5d7d75e10a00748207f1520d
+```
