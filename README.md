@@ -8,7 +8,9 @@
 DashFun是一个h5游戏整合平台，运行在telegram的mini app中
 
 # 接入文档
-DashFun的运行方式是在自身的app内包含一个iFrame，嵌入游戏，不需要在游戏方引入SDK，通过window之间发送消息进行通信
+- DashFun的运行方式是在自身的app内包含一个iFrame，嵌入游戏，不需要在游戏方引入SDK，通过window之间发送消息进行通信
+- **Unity接入参考** [**DashFun Unity 接入指引 V0.1**](https://github.com/DashFunWeb3/dashfun-integration/blob/main/integration-unity/README.md)
+- **Cocos接入参考** [**DashFun Cocos 接入指引 V0.1**](https://github.com/DashFunWeb3/dashfun-integration/blob/main/integration-cocos/README.md)
 
 ## 必须要接入的消息
 - [**loading**](#loading消息) 通知dashfun当前游戏的载入进度
@@ -19,10 +21,13 @@ DashFun的运行方式是在自身的app内包含一个iFrame，嵌入游戏，�
 - [**openInvoice**](#openinvoice消息)开启telegram支付界面进行支付
 
 # 测试方式
-- 首先需要创建telegram的测试账号，[测试账号创建方法](https://docs.telegram-mini-apps.com/platform/test-environment)
+- 在Telegram中搜索 DashFun [https://t.me/DashFunBot](https://t.me/DashFunBot)
+- 向DashFunBot发送消息 /test 测试游戏的链接(可以是localhost链接)，bot会回复一条消息，点击即可开启测试游戏
+- 测试模式下付费不会真正扣费
+<!-- - 首先需要创建telegram的测试账号，[测试账号创建方法](https://docs.telegram-mini-apps.com/platform/test-environment)
 - 登陆测试账号后，搜索 DashFunTest [https://t.me/DashFunTestBot](https://t.me/DashFunTestBot)
 - 向DashFunTestBot发送消息 /test 测试游戏的链接，bot会回复一条消息，点击即可开启测试游戏
-- **注: 测试游戏的连接必须是https协议地址**
+- **注: 测试游戏的连接必须是https协议地址** -->
 
 ---
 # API说明
