@@ -15,12 +15,15 @@ DashFun是一个h5游戏整合平台，运行在telegram的mini app中
 ## 必须要接入的消息
 - [**loading**](#loading消息) 通知dashfun当前游戏的载入进度
 - [**getUserProfile**](#getuserprofile消息) 获取当前登陆的tg用户信息，包括用户Id，语言等信息
+- 必须接入dashfun的存档读档功能，不能存档在本地(仅限单机游戏)
+- 付费UI上的付费货币必须改为钻石图标，图标地址[https://res.dashfun.games/icons/dashfun-diamond.png](https://res.dashfun.games/icons/dashfun-diamond.png) ，50钻石等于1美金
+- 等级上报 (仅限网游)
 
 ## Payment相关消息
 - [**requestPayment**](#requestpayment消息) 向dashfun请求支付，请求成功后会返回一个telegram invoice linke，拿到link后需要发送[**openInvoice**](#openinvoice消息)消息开启tg的支付界面
 - [**openInvoice**](#openinvoice消息)开启telegram支付界面进行支付
 
-# 测试方式
+# Telegram测试方式
 - 在Telegram中搜索 DashFun [https://t.me/DashFunBot](https://t.me/DashFunBot)
 - 向DashFunBot发送消息 /test 测试游戏的链接(可以是localhost链接)，bot会回复一条消息，点击即可开启测试游戏
 - 测试模式下付费不会真正扣费
@@ -28,6 +31,14 @@ DashFun是一个h5游戏整合平台，运行在telegram的mini app中
 - 登陆测试账号后，搜索 DashFunTest [https://t.me/DashFunTestBot](https://t.me/DashFunTestBot)
 - 向DashFunTestBot发送消息 /test 测试游戏的链接，bot会回复一条消息，点击即可开启测试游戏
 - **注: 测试游戏的连接必须是https协议地址** -->
+
+# 网页测试方式
+- 先运行游戏，获取运行地址，可以使用localhost
+- 在浏览器中输入地址 `http://dashfun-test.nexgami.com/entry/test/game?`，并将本地运行地址加在 ? 后面
+- 例如：
+`http://dashfun-test.nexgami.com/entry/test/game?http://localhost:7456`
+- 浏览器会出现如下界面，点击Play即可进行游戏测试
+- **注：dashfun-test.nexgami.com支持http和https，测试时保证和测试游戏的链接协议匹配**
 
 ---
 # API说明
